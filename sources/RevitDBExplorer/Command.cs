@@ -1,9 +1,9 @@
-﻿using System.Windows.Interop;
-using Autodesk.Revit.Attributes;
+﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using RevitDBExplorer.Augmentations;
 using RevitDBExplorer.Domain.Selectors;
+using System.Windows.Interop;
 
 namespace RevitDBExplorer
 {
@@ -23,6 +23,14 @@ namespace RevitDBExplorer
             window.Show();
 
             return Result.Succeeded;
+        }
+    }
+
+    public class ExternalCommandAvailability : IExternalCommandAvailability
+    {
+        public bool IsCommandAvailable(UIApplication applicationData, CategorySet selectedCategories)
+        {
+            return true;
         }
     }
 }

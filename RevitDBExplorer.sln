@@ -16,7 +16,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupBuilder", "setup\Setup
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitDBExplorer.Tests", "tests\RevitDBExplorer.Tests.csproj", "{DC6DE964-9472-47AF-B744-6D4E39EA2209}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitDBScripting", "sources\RevitDBScripting\RevitDBScripting.csproj", "{0A08A6F2-5B74-457A-93AB-B6BF834D9D34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitDBScripting", "sources\RevitDBScripting\RevitDBScripting.csproj", "{0A08A6F2-5B74-457A-93AB-B6BF834D9D34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "Build\Build.csproj", "{75C2623F-89DF-4D56-8761-B61CFC9777CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,20 @@ Global
 		{0A08A6F2-5B74-457A-93AB-B6BF834D9D34}.R2024|Any CPU.Build.0 = Release|Any CPU
 		{0A08A6F2-5B74-457A-93AB-B6BF834D9D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A08A6F2-5B74-457A-93AB-B6BF834D9D34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.Debug2024|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.Debug2024|Any CPU.Build.0 = Debug|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2021|Any CPU.ActiveCfg = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2021|Any CPU.Build.0 = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2022|Any CPU.ActiveCfg = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2022|Any CPU.Build.0 = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2023|Any CPU.ActiveCfg = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2023|Any CPU.Build.0 = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2024|Any CPU.ActiveCfg = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.R2024|Any CPU.Build.0 = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75C2623F-89DF-4D56-8761-B61CFC9777CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

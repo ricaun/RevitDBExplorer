@@ -11,13 +11,39 @@
     <Product>Revit database explorer</Product>
     <Copyright>(c) Revit Database Explorer</Copyright>
     <AssemblyVersion></AssemblyVersion>
-   
-    <OutputPath>..\bin\$(Configuration)\</OutputPath>
-	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
     <UseWPF>true</UseWPF>
-	<Configurations>Debug;R2023;R2022;R2021;Debug2024;R2024;</Configurations>
+    <Configurations>Debug;R2023;R2022;R2021;Debug2024;R2024;</Configurations>
   </PropertyGroup>
+
+  <!-- Release -->
+  <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
+    <OutputPath>bin\Release\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="InstallationFiles\**" />
+    <EmbeddedResource Remove="InstallationFiles\**" />
+    <None Remove="InstallationFiles\**" />
+    <Page Remove="InstallationFiles\**" />
+  </ItemGroup>
+
+  <!-- Fody -->
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.*" IncludeAssets="build; compile" PrivateAssets="all" />
+  </ItemGroup>
+  <PropertyGroup>
+    <WeaverConfiguration>
+      <Weavers>
+        <Costura />
+      </Weavers>
+    </WeaverConfiguration>
+  </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
     <DefineConstants>TRACE;DEBUG;R2021b, R2022b, R2023b, R2023e, R2024e</DefineConstants>
@@ -25,7 +51,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
-    <Version>1.5.1.0</Version>    
+    <Version>1.5.2</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2023|AnyCPU'">
     <DefineConstants>TRACE;R2021b, R2022b, R2023b, R2023e, R2024e</DefineConstants>
@@ -119,19 +145,19 @@
       <HintPath>..\..\binaries\revit\2023\RevitAddInUtility.dll</HintPath>
       <Private>False</Private>
     </Reference>
-	  <Reference Include="RevitAPI">
-		  <HintPath>..\..\binaries\revit\$(RevitYear)\RevitAPI.dll</HintPath>
-		  <Private>False</Private>
-	  </Reference>
-	 
-	  <Reference Include="RevitAPIUI">
-		  <HintPath>..\..\binaries\revit\$(RevitYear)\RevitAPIUI.dll</HintPath>
-		  <Private>False</Private>
-	  </Reference>
-	  <Reference Include="AdWindows">
-		  <HintPath>..\..\binaries\revit\$(RevitYear)\AdWindows.dll</HintPath>
-		  <Private>False</Private>
-	  </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\binaries\revit\$(RevitYear)\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="RevitAPIUI">
+      <HintPath>..\..\binaries\revit\$(RevitYear)\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AdWindows">
+      <HintPath>..\..\binaries\revit\$(RevitYear)\AdWindows.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity">
@@ -270,5 +296,18 @@
     <Compile Remove="obj\R2024\UIComponents\Tree\TreeView.g.i.cs" />
     <Compile Remove="obj\R2024\WPF\Controls\TextBoxWithPlaceholder.g.cs" />
     <Compile Remove="obj\R2024\WPF\Controls\TextBoxWithPlaceholder.g.i.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\AppSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppSettings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\AppSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>
